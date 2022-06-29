@@ -46,7 +46,9 @@
                     <!-- contact list -->
                     <div class="contact_list normo_txt">
                         <ul>
-                            <li @click="getCurrentContact(index)" v-for="(contact, index) in contacts" class="flex" :class="{'active' : index === currentContact}">
+                            <li @click="getCurrentContact(index)" 
+                            v-for="(contact, index) in contacts" class="flex" 
+                            :class="{'active' : index === currentContact}">
                                 <div class="avatar">
                                     <img :src="contact.avatar" :alt="contact.name">
                                 </div>
@@ -94,7 +96,9 @@
                     <!-- bottom -->
                     <div class="bottom flex">
                         <span><i class="fa-solid fa-face-smile"></i></span>
-                        <div><input type="text"></div>
+                        <div>
+                            <input v-model="messageAddedTxt" @keyup.enter ="addUserMessage" type="text">
+                        </div>
                         <span><i class="fa-solid fa-microphone"></i></span>
                     </div>
                 </div>
