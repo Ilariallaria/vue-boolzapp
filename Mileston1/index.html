@@ -62,7 +62,7 @@
                     <!-- top -->
                     <div class="col_header flex ">
                         <div class="avatar">
-                            <img src="img/avatar_3.jpg" alt="user">
+                            <img :src="contacts[currentContact].avatar" alt="">
                         </div>
                         <div class="userName">
                             <div class="normo_txt ">{{ contacts[currentContact].name }}</div>
@@ -84,7 +84,7 @@
                             <div class="contactTime xSmallText">12:20</div>
                         </div>
                         <div class="userMessages">
-                            <div class="userTxt normo_txt">Tutto fatto!</div>
+                            <div class="userTxt normo_txt">Tutto </div>
                             <div class="userTime xSmallText">13:00</div>
                         </div>
                         </div>
