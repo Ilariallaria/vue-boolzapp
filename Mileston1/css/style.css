@@ -116,6 +116,9 @@ input{
 
 /* ----contact list */
 
+.active{
+    background-color: lightgrey;
+}
 .contact_list{
     height: calc(100% - 155px);
     overflow-y: auto;
@@ -156,7 +159,7 @@ input{
 }
 
 .messages-cont > div{
-    max-width: 40%;
+    max-width: 50%;
     border-radius: 6px;
     padding: 5px 3px 3px 10px;
     height: fit-content;

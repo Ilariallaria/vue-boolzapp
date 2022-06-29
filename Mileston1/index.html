@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <main>
+    <main id="app">
         <div class="container flex">
             <div class="content flex">
 
@@ -20,7 +21,7 @@
                         <div class="avatar">
                             <img src="img/avatar_io.jpg" alt="user">
                         </div>
-                        <div class="normo_txt userName">IOUser Name</div>
+                        <div class="normo_txt userName">Nome Utente</div>
                         <div class="icons">
                             <i class="fa-solid fa-circle-notch"></i>
                             <i class="fa-solid fa-message"></i>
@@ -45,29 +46,11 @@
                     <!-- contact list -->
                     <div class="contact_list normo_txt">
                         <ul>
-                            <li class="flex">
+                            <li @click="getCurrentContact(index)" v-for="(contact, index) in contacts" class="flex" :class="{'active' : index === currentContact}">
                                 <div class="avatar">
-                                    <img src="img/avatar_io.jpg" alt="user">
+                                    <img :src="contact.avatar" :alt="contact.name">
                                 </div>
-                                <div class="contactName">Contact Name</div>
-                            </li>
-                            <li class="flex">
-                                <div class="avatar">
-                                    <img src="img/avatar_io.jpg" alt="user">
-                                </div>
-                                <div class="contactName">Contact Name</div>
-                            </li>
-                            <li class="flex">
-                                <div class="avatar">
-                                    <img src="img/avatar_io.jpg" alt="user">
-                                </div>
-                                <div class="contactName">Contact Name</div>
-                            </li>
-                            <li class="flex">
-                                <div class="avatar">
-                                    <img src="img/avatar_io.jpg" alt="user">
-                                </div>
-                                <div class="contactName">Contact Name</div>
+                                <div class="contactName">{{contact.name}}</div>
                             </li>
 
                         </ul>
@@ -82,7 +65,7 @@
                             <img src="img/avatar_3.jpg" alt="user">
                         </div>
                         <div class="userName">
-                            <div class="normo_txt ">Nome ConChiParlo</div>
+                            <div class="normo_txt ">{{ contacts[currentContact].name }}</div>
                             <div class="small_txt">Ultimo accesso oggi alle</div>
                         </div>
                         <div class="icons">
@@ -97,11 +80,11 @@
                         <div class="messages-cont">
 
                         <div class="contactMessages">
-                            <div class="contactTxt normo_txt ">'cazzo si fa?</div>
+                            <div class="contactTxt normo_txt ">Ricordati di dargli da mangiare</div>
                             <div class="contactTime xSmallText">12:20</div>
                         </div>
                         <div class="userMessages">
-                            <div class="userTxt normo_txt">so una sega</div>
+                            <div class="userTxt normo_txt">Tutto fatto!</div>
                             <div class="userTime xSmallText">13:00</div>
                         </div>
                         </div>
