@@ -46,7 +46,7 @@
                     <!-- contact list -->
                     <div class="contact_list normo_txt">
                         <ul>
-                            <li v-for="(contact, index) in contacts" class="flex" :class="{'active' : index === currentContact}">
+                            <li @click="getCurrentContact(index)" v-for="(contact, index) in contacts" class="flex" :class="{'active' : index === currentContact}">
                                 <div class="avatar">
                                     <img :src="contact.avatar" :alt="contact.name">
                                 </div>
@@ -78,15 +78,17 @@
                     <section class="messages-wrapper">
 
                         <div class="messages-cont">
-                            <div class="messages sent">
-                                <div class="messageTxt normo_txt">Hai portato a spasso il cane? </div>
-                                <div class="messageDataTime xSmallText">13:00</div>
-                            </div> 
 
-                            <div class="messages received">
+                            <div class="messages" v-for="type in contacts[currentContact].messages"
+                                :class="type.status === 'sent' ? 'sent': 'received'">
+                                <div class="messageTxt normo_txt">
+                                {{ type.text }}</div>
+                                <div class="messageDataTime xSmallText">{{ type.date }}</div>
+                            </div>
+                            <!-- <div class="messages sent">
                                 <div class="messageTxt normo_txt">Tutto fatto </div>
                                 <div class="messageDataTime xSmallText">13:00</div>
-                            </div>
+                            </div> -->
                         </div>
                     </section>
                     <!-- bottom -->
