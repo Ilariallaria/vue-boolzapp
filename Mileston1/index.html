@@ -79,14 +79,15 @@
 
                         <div class="messages-cont">
 
-                        <div class="contactMessages">
-                            <div class="contactTxt normo_txt ">Ricordati di dargli da mangiare</div>
-                            <div class="contactTime xSmallText">12:20</div>
-                        </div>
-                        <div class="userMessages">
-                            <div class="userTxt normo_txt">Tutto </div>
-                            <div class="userTime xSmallText">13:00</div>
-                        </div>
+                            <div class="messages" v-for="type in contacts[currentContact].messages">
+                                <div class="messageTxt normo_txt">
+                                {{ type.text }}</div>
+                                <div class="messageDataTime xSmallText">{{ type.date }}</div>
+                            </div>
+                            <!-- <div class="messages sent">
+                                <div class="messageTxt normo_txt">Tutto </div>
+                                <div class="messageDataTime xSmallText">13:00</div>
+                            </div> -->
                         </div>
                     </section>
                     <!-- bottom -->

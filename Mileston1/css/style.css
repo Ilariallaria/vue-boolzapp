@@ -172,32 +172,24 @@ input{
 }
 
 /*contactMessages */
-.contactMessages{
-background-color: #ffffff;
+.messages{
 height: fit-content;
 width: 45%;
-align-self: flex-start;
-
 }
-.contactTxt{
+.messageTxt{
 text-align: left;
 }
-.contactTime{
+.messageDataTime{
 text-align: right;
 }
-
-/*userMessages */
-.userMessages{
+.received{
+    background-color: #ffffff;
+    align-self: flex-start;
+}
+.sent{
     background-color: #cbfabd;
-    height: fit-content;
-    width: 45%;
     align-self: flex-end;
-}
-.userTxt{
-    text-align: left;
-}
-.userTime{
-    text-align: right;
+
 }
 
 /* ---------bottom */
