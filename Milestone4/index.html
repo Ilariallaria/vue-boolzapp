@@ -42,13 +42,16 @@
                     <!-- search -->
                     <div class="input_cont flex">
                         <div><i class="fa-solid fa-magnifying-glass"></i></div>
-                        <input class="small_txt" type="text" placeholder="Cerca o inizia una nuova chat">
+                        <input v-model="filteredTxt" @keyup="searchContacByTxt()"
+                         class="small_txt" type="text" placeholder="Cerca o inizia una nuova chat">
                     </div>
                     <!-- contact list -->
                     <div class="contact_list normo_txt">
                         <ul>
-                            <li @click="getCurrentContact(index)" 
-                            v-for="(contact, index) in contacts" class="flex" 
+                            <li class="flex"
+                            @click="getCurrentContact(index)" 
+                            v-for="(contact, index) in contacts"
+                            v-if="contact.visible"
                             :class="{'active' : index === currentContact}">
                                 <div class="avatar">
                                     <img :src="contact.avatar" :alt="contact.name">

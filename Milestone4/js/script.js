@@ -1,3 +1,8 @@
+// Milestone 4
+// Ricerca utenti: scrivendo qualcosa nell’input a sinistra,
+// vengono visualizzati solo i contatti il cui nome contiene le lettere inserite
+// (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
+
 const app = new Vue({
     el: '#app',
     data:{
@@ -5,6 +10,7 @@ const app = new Vue({
         messageAddedUser: {},
         messageAddedContact : {},
         messageAddedTxt: '',
+        filteredTxt: '',
         contacts: [
             {
                 name: 'Michele',
@@ -27,6 +33,7 @@ const app = new Vue({
                         status: 'received'
                     }
                 ],
+
             },
             {
                 name: 'Fabio',
@@ -97,7 +104,6 @@ const app = new Vue({
             this.currentContact = index;
         },
 
-
         // funzione che aggiunge messaggio Utente
         addUserMessage() {
 
@@ -123,7 +129,6 @@ const app = new Vue({
             
         },
 
-
         addContactMessage(){
 
             // funzione aggiunge il messaggio (oggetto) preimpostato
@@ -134,12 +139,23 @@ const app = new Vue({
             };
             
             // nell'array messages del contatto attivo
-
             this.contacts[this.currentContact].messages.push(this.messageAddedContact)
 
         },
 
-        
+        searchContacByTxt(){
+            
+            this.contacts.forEach((element) => {
+                const userInputlower = this.filteredTxt.toLowerCase();
+                const elementTxtLower = element.name.toLowerCase();
+                
+                if(elementTxtLower.includes(userInputlower)){
+                    element.visible = true;
+                }else{
+                    element.visible = false;
+                }
+          });
+        }
     },
 
 })
